@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/scol?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">nte</property>
+    <property name="hibernate.connection.password">nte</property>
+    <mapping class="scol.mapeamento.AtivarConta"/>
+    <mapping class="scol.mapeamento.Chamado"/>
+    <mapping class="scol.mapeamento.Cidade"/>
+    <mapping class="scol.mapeamento.Escola"/>
+    <mapping class="scol.mapeamento.Funcao"/>
+    <mapping class="scol.mapeamento.Laboratorio"/>
+    <mapping class="scol.mapeamento.Login"/>
+    <mapping class="scol.mapeamento.Parecer"/>
+    <mapping class="scol.mapeamento.Permissao"/>
+    <mapping class="scol.mapeamento.Pregao"/>
+    <mapping class="scol.mapeamento.Regional"/>
+    <mapping class="scol.mapeamento.Setor"/>
+    <mapping class="scol.mapeamento.Status"/>
+    <mapping class="scol.mapeamento.Usuario"/>
+  </session-factory>
+</hibernate-configuration>
