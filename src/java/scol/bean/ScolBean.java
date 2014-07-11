@@ -141,4 +141,20 @@ public class ScolBean implements Serializable {
         RnChamado rnChamado = new RnChamado();
         return rnChamado.todos(this.usuarioLogado);
     }
+    
+    /*
+     * =============================================================================
+     *                               Logoff
+     * =============================================================================
+     */
+    public String sair(){
+        this.login = new Login();
+        this.usuarioLogado = new Usuario();
+        this.novoUsuario = new Usuario();
+        this.chamado = new Chamado();
+        this.mensagem = new Mensagem();
+        this.listarChamados = null;
+        
+        return "index";
+    }
 }
