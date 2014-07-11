@@ -34,5 +34,13 @@ public class RnChamado {
         return chamados.todos();
     }
 
+    public List<Chamado> naoFinalizados(Usuario u) {
+        Usuarios usuarios = null;
+        if (u != null) {
+            this.chamados = new ChamadosDAO(this.sessao);
+        }
+        return chamados.naoFinalizados();
+    }
+
     
 }

@@ -32,7 +32,7 @@ public class ChamadosDAO implements Chamados {
     }
 
     @Override
-    public List<Chamado> todosNaoFinalizados() {
+    public List<Chamado> naoFinalizados() {
         List<Chamado> chamados = this.sessao.createQuery("SELECT chmd FROM Chamado chmd where chmd.status.idstatus != :status order by chmd.status.idstatus, chmd.dataabertura")
                 .setInteger("status", 7)
                 .list();
@@ -40,7 +40,7 @@ public class ChamadosDAO implements Chamados {
     }
 
     @Override
-    public List<Chamado> todosFinalizados() {
+    public List<Chamado> finalizados() {
         List<Chamado> chamados = this.sessao.createQuery("SELECT chmd FROM Chamado chmd where chmd.status.idstatus = :status order by  chmd.status.idstatus, chmd.dataabertura")
                 .setInteger("status", 7)
                 .list();
@@ -48,7 +48,7 @@ public class ChamadosDAO implements Chamados {
     }
 
     @Override
-    public List<Chamado> todosCriticos() {
+    public List<Chamado> criticos() {
         List<Chamado> chamados = this.sessao.createQuery("SELECT chmd FROM Chamado chmd where chmd.status.idstatus = :status order by chmd.status.idstatus, chmd.dataabertura")
                 .setInteger("status", 1)
                 .list();
@@ -56,7 +56,7 @@ public class ChamadosDAO implements Chamados {
     }
 
     @Override
-    public List<Chamado> todosPrioridades() {
+    public List<Chamado> prioridades() {
         List<Chamado> chamados = this.sessao.createQuery("SELECT chmd FROM Chamado chmd where chmd.status.idstatus = :status order by chmd.status.idstatus, chmd.dataabertura")
                 .setInteger("status", 2)
                 .list();
@@ -64,7 +64,7 @@ public class ChamadosDAO implements Chamados {
     }
 
     @Override
-    public List<Chamado> todosAndamento() {
+    public List<Chamado> andamento() {
         List<Chamado> chamados = this.sessao.createQuery("SELECT chmd FROM Chamado chmd where chmd.status.idstatus = :status order by chmd.status.idstatus, chmd.dataabertura")
                 .setInteger("status", 3)
                 .list();
@@ -72,7 +72,7 @@ public class ChamadosDAO implements Chamados {
     }
 
     @Override
-    public List<Chamado> todosEmEspera() {
+    public List<Chamado> emEspera() {
         List<Chamado> chamados = this.sessao.createQuery("SELECT chmd FROM Chamado chmd where chmd.status.idstatus = :status order by chmd.status.idstatus, chmd.dataabertura")
                 .setInteger("status", 4)
                 .list();
@@ -80,7 +80,7 @@ public class ChamadosDAO implements Chamados {
     }
 
     @Override
-    public List<Chamado> todosAguradandoGarantia() {
+    public List<Chamado> aguradandoGarantia() {
         List<Chamado> chamados = this.sessao.createQuery("SELECT chmd FROM Chamado chmd where chmd.status.idstatus = :status order by chmd.status.idstatus, chmd.dataabertura")
                 .setInteger("status", 5)
                 .list();
@@ -88,7 +88,7 @@ public class ChamadosDAO implements Chamados {
     }
 
     @Override
-    public List<Chamado> todosAguardandoOi() {
+    public List<Chamado> aguardandoOi() {
         List<Chamado> chamados = this.sessao.createQuery("SELECT chmd FROM Chamado chmd where chmd.status.idstatus = :status order by chmd.status.idstatus, chmd.dataabertura")
                 .setInteger("status", 6)
                 .list();

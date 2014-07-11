@@ -33,7 +33,7 @@ public class Teste {
             Usuarios usuarios = new UsuariosDAO(sessao);
             Chamados chamados = new ChamadosDAO(sessao);
             List<Usuario> tecnicos = usuarios.todos();
-            List<Chamado> chmd = chamados.todosPrioridades();
+            List<Chamado> chmd = chamados.prioridades();
             //Usuario usuario = (Usuario) sesessao.createQuery("select usr from Usuario usr where usr.login.usuario = :nome and usr.login.senha = :senha").setString("nome", login.getUsuario()).setString("senha", login.getSenha()).uniqueResult();
             Usuario usuario = usuarios.validar(login);
             

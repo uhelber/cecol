@@ -142,6 +142,11 @@ public class ScolBean implements Serializable {
         return rnChamado.todos(this.usuarioLogado);
     }
     
+    public List<Chamado> listarChamadosNaoFinalizados(){
+        RnChamado rnChamado = new RnChamado();
+        return rnChamado.naoFinalizados(this.usuarioLogado);
+    }
+    
     /*
      * =============================================================================
      *                               Logoff

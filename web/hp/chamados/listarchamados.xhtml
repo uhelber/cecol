@@ -13,9 +13,13 @@
         <h1>Chamados Abertos</h1>
 
         <h:form id="frm">
+            <h:panelGrid class="usr">
+                <h:outputText value="#{scolBean.usuario.nome} #{scolBean.usuario.sobrenome}" />
+            </h:panelGrid>
+            <br/>
             <h:panelGroup class="usr">
                 <h:commandButton image="/imagens/sair2.png" action="#{scolBean.sair()}" />
-                <h:outputText value="#{scolBean.usuario.nome} #{scolBean.usuario.sobrenome}" />
+                <h:outputText value="Sair" />
             </h:panelGroup>
             <br/>
             <br/>

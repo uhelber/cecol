@@ -13,14 +13,14 @@ import scol.mapeamento.Chamado;
  */
 public interface Chamados {
     public List<Chamado> todos();
-    public List<Chamado> todosNaoFinalizados();
-    public List<Chamado> todosFinalizados();
-    public List<Chamado> todosCriticos();
-    public List<Chamado> todosPrioridades();
-    public List<Chamado> todosAndamento();
-    public List<Chamado> todosEmEspera();
-    public List<Chamado> todosAguradandoGarantia();
-    public List<Chamado> todosAguardandoOi();
+    public List<Chamado> naoFinalizados();
+    public List<Chamado> finalizados();
+    public List<Chamado> criticos();
+    public List<Chamado> prioridades();
+    public List<Chamado> andamento();
+    public List<Chamado> emEspera();
+    public List<Chamado> aguradandoGarantia();
+    public List<Chamado> aguardandoOi();
     public Chamado porId(Integer id);
     public void cadastrar(Chamado chamado);
     public void editar(Chamado chamado);
