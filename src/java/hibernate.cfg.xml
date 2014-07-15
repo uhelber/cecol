@@ -4,24 +4,26 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/scol</property>
-    <property name="hibernate.connection.username">nte</property>
-    <property name="hibernate.connection.password">nte</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cecol</property>
+    <property name="hibernate.connection.username">cecol</property>
+    <property name="hibernate.connection.password">cecol</property>
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
-    <mapping class="scol.mapeamento.AtivarConta"/>
-    <mapping class="scol.mapeamento.Chamado"/>
-    <mapping class="scol.mapeamento.Cidade"/>
-    <mapping class="scol.mapeamento.Escola"/>
-    <mapping class="scol.mapeamento.Funcao"/>
-    <mapping class="scol.mapeamento.Laboratorio"/>
-    <mapping class="scol.mapeamento.Login"/>
-    <mapping class="scol.mapeamento.Parecer"/>
-    <mapping class="scol.mapeamento.Permissao"/>
-    <mapping class="scol.mapeamento.Pregao"/>
-    <mapping class="scol.mapeamento.Regional"/>
-    <mapping class="scol.mapeamento.Setor"/>
-    <mapping class="scol.mapeamento.Status"/>
-    <mapping class="scol.mapeamento.Usuario"/>
+    <mapping class="cecol.mapeamento.Atendimento" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.AtivarConta" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Atuacao" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Chamado" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Cidade" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Escola" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Funcao" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Laboratorio" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Login" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Parecer" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Permissao" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Pregao" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Regional" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Setor" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Status" file="" jar="" package="cecol.mapeamento" resource=""/>
+    <mapping class="cecol.mapeamento.Usuario" file="" jar="" package="cecol.mapeamento" resource=""/>
   </session-factory>
 </hibernate-configuration>
