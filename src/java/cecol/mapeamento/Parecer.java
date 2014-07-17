@@ -5,11 +5,12 @@
 package cecol.mapeamento;
 
 import java.io.Serializable;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -19,18 +20,17 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Parecer implements Serializable {
-    private Integer idparecer;
-    private Usuario tecnico;
-    private String dataatentimento;
-    private String dataconclusao;
-    private String parecer;
-    private Integer chamado;
-
-    public Parecer() {
-    }
 
     @Id
     @GeneratedValue
+    private Integer idparecer;
+    @OneToOne
+    private Usuario tecnico;
+    private String parecer;
+    private String dataatentimento;
+    @ManyToOne
+    private Chamado chamado;
+
     public Integer getIdparecer() {
         return idparecer;
     }
@@ -39,30 +39,12 @@ public class Parecer implements Serializable {
         this.idparecer = idparecer;
     }
 
-    @ManyToOne
-    @JoinColumn
     public Usuario getTecnico() {
         return tecnico;
     }
 
     public void setTecnico(Usuario tecnico) {
         this.tecnico = tecnico;
-    }
-
-    public String getDataatentimento() {
-        return dataatentimento;
-    }
-
-    public void setDataatentimento(String dataatentimento) {
-        this.dataatentimento = dataatentimento;
-    }
-
-    public String getDataconclusao() {
-        return dataconclusao;
-    }
-
-    public void setDataconclusao(String dataconclusao) {
-        this.dataconclusao = dataconclusao;
     }
 
     public String getParecer() {
@@ -73,23 +55,26 @@ public class Parecer implements Serializable {
         this.parecer = parecer;
     }
 
-    public Integer getChamado() {
+    public String getDataatentimento() {
+        return dataatentimento;
+    }
+
+    public void setDataatentimento(String dataatentimento) {
+        this.dataatentimento = dataatentimento;
+    }
+
+    public Chamado getChamado() {
         return chamado;
     }
 
-    public void setChamado(Integer chamado) {
+    public void setChamado(Chamado chamado) {
         this.chamado = chamado;
     }
-
+    
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + (this.idparecer != null ? this.idparecer.hashCode() : 0);
-        hash = 97 * hash + (this.tecnico != null ? this.tecnico.hashCode() : 0);
-        hash = 97 * hash + (this.dataatentimento != null ? this.dataatentimento.hashCode() : 0);
-        hash = 97 * hash + (this.dataconclusao != null ? this.dataconclusao.hashCode() : 0);
-        hash = 97 * hash + (this.parecer != null ? this.parecer.hashCode() : 0);
-        hash = 97 * hash + (this.chamado != null ? this.chamado.hashCode() : 0);
+        int hash = 7;
+        hash = 89 * hash + Objects.hashCode(this.idparecer);
         return hash;
     }
 
@@ -102,25 +87,10 @@ public class Parecer implements Serializable {
             return false;
         }
         final Parecer other = (Parecer) obj;
-        if (this.idparecer != other.idparecer && (this.idparecer == null || !this.idparecer.equals(other.idparecer))) {
-            return false;
-        }
-        if (this.tecnico != other.tecnico && (this.tecnico == null || !this.tecnico.equals(other.tecnico))) {
-            return false;
-        }
-        if ((this.dataatentimento == null) ? (other.dataatentimento != null) : !this.dataatentimento.equals(other.dataatentimento)) {
-            return false;
-        }
-        if ((this.dataconclusao == null) ? (other.dataconclusao != null) : !this.dataconclusao.equals(other.dataconclusao)) {
-            return false;
-        }
-        if ((this.parecer == null) ? (other.parecer != null) : !this.parecer.equals(other.parecer)) {
-            return false;
-        }
-        if (this.chamado != other.chamado && (this.chamado == null || !this.chamado.equals(other.chamado))) {
+        if (!Objects.equals(this.idparecer, other.idparecer)) {
             return false;
         }
         return true;
     }
-
+    
 }

@@ -5,11 +5,13 @@
 package cecol.mapeamento;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -20,19 +22,24 @@ import javax.persistence.Table;
 @Entity
 @Table
 public class Chamado implements Serializable{
+    @Id
+    @GeneratedValue
     private Integer idchamado;
+    @OneToOne
     private Escola escola;
     private String contato;
     private String telefone;
     private String telefone2;
+    @OneToOne
     private Status status;
     private String descricao;
-    private Usuario abertopor;
-    private String dataabertura;
-    private Usuario tecnico;
+    @OneToOne
+    private Usuario atendente;
+    private String dt_abertura;
+    private String dt_conclusao;
+    @OneToMany
+    private List<Parecer> parecer;
 
-    @Id
-    @GeneratedValue
     public Integer getIdchamado() {
         return idchamado;
     }
@@ -41,8 +48,6 @@ public class Chamado implements Serializable{
         this.idchamado = idchamado;
     }
 
-    @ManyToOne
-    @JoinColumn(name="escola")
     public Escola getEscola() {
         return escola;
     }
@@ -75,8 +80,6 @@ public class Chamado implements Serializable{
         this.telefone2 = telefone2;
     }
 
-    @ManyToOne
-    @JoinColumn(name="status")
     public Status getStatus() {
         return status;
     }
@@ -93,38 +96,42 @@ public class Chamado implements Serializable{
         this.descricao = descricao;
     }
 
-    @ManyToOne
-    @JoinColumn(name="abertopor")
-    public Usuario getAbertopor() {
-        return abertopor;
+    public Usuario getAtendente() {
+        return atendente;
     }
 
-    public void setAbertopor(Usuario abertopor) {
-        this.abertopor = abertopor;
+    public void setAtendente(Usuario atendente) {
+        this.atendente = atendente;
     }
 
-    public String getDataabertura() {
-        return dataabertura;
+    public String getDt_abertura() {
+        return dt_abertura;
     }
 
-    public void setDataabertura(String dataabertura) {
-        this.dataabertura = dataabertura;
+    public void setDt_abertura(String dt_abertura) {
+        this.dt_abertura = dt_abertura;
     }
 
-    @ManyToOne
-    @JoinColumn(name="tecnico")
-    public Usuario getTecnico() {
-        return tecnico;
+    public String getDt_conclusao() {
+        return dt_conclusao;
     }
 
-    public void setTecnico(Usuario tecnico) {
-        this.tecnico = tecnico;
+    public void setDt_conclusao(String dt_conclusao) {
+        this.dt_conclusao = dt_conclusao;
+    }
+
+    public List<Parecer> getParecer() {
+        return parecer;
+    }
+
+    public void setParecer(List<Parecer> parecer) {
+        this.parecer = parecer;
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 23 * hash + (this.idchamado != null ? this.idchamado.hashCode() : 0);
+        int hash = 3;
+        hash = 43 * hash + Objects.hashCode(this.idchamado);
         return hash;
     }
 
@@ -137,10 +144,10 @@ public class Chamado implements Serializable{
             return false;
         }
         final Chamado other = (Chamado) obj;
-        if (this.idchamado != other.idchamado && (this.idchamado == null || !this.idchamado.equals(other.idchamado))) {
+        if (!Objects.equals(this.idchamado, other.idchamado)) {
             return false;
         }
         return true;
     }
-
+    
 }
